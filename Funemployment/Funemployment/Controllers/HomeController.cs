@@ -1,5 +1,6 @@
 ﻿using Funemployment.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,12 @@ namespace Funemployment.Controllers
     {
         private FunemploymentDbContext _context;
 
-        public HomeController(FunemploymentDbContext context)
+        private readonly IConfiguration Configuration;
+
+        public HomeController(FunemploymentDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
         public IActionResult Index()
