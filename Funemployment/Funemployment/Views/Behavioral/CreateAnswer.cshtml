@@ -1,0 +1,16 @@
+﻿@using Funemployment.Models
+@model Funemployment.Models.CreateAnswerViewModel 
+
+
+
+<form method="post" asp-controller="Behavioral" form-action="CreateAnswer">
+    <div class="form-group">
+        <label asp-for="@Model.Ans.Content">Your Answer</label>
+        <input asp-for="@Model.Ans.Content" />
+        <br />
+        <br />
+
+        <button type="submit">Add Answer</button>
+    </div>
+
+</form>
