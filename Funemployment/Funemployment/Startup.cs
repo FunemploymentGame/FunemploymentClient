@@ -21,8 +21,8 @@ namespace Funemployment
         {
             var builder = new ConfigurationBuilder().AddEnvironmentVariables();
             builder.AddUserSecrets<Startup>();
-            //Configuration = builder.Build();
-            Configuration = configuration;
+            Configuration = builder.Build();
+            //Configuration = configuration;
         }
        
         /// <summary>
@@ -32,9 +32,9 @@ namespace Funemployment
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
+            services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
