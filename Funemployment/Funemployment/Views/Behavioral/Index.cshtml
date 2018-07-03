@@ -1,6 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model List<Funemployment.Models.BehaviorQuestion>
+<h1>Behavior Questions</h1>
+
+@foreach (var item in Model)
+{
+    <h2>@item.Content</h2>
+    <p><a asp-controller="Behavioral" asp-action="GetOne" asp-route-id="@item.ID">View More</a></p>
 }
-Behavioral Page
