@@ -74,23 +74,19 @@ namespace Funemployment.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> CreateAnswer(int? id)
+        public IActionResult CreateAnswer(int id)
         {
-            if (id.HasValue)
-            {
-                return View(id);
-            }
-            else
-            {
-                return NotFound();
-            }
+            CreateAnswerViewModel t = new CreateAnswerViewModel();
+            t.Ans = new Answer();
+            t.ID = id;
+            t.Ans.BQID = id;
+            return View(t);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAnswer(Answer answer)
+        public async Task<IActionResult> CreateAnswer(CreateAnswerViewModel cavm)
         {
-            
-            await _context.AnswerTable.AddAsync(answer);
+            await _context.AnswerTable.AddAsync(cavm.Ans);
             await _context.SaveChangesAsync();
             return View();
         }
