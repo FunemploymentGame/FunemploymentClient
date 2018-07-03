@@ -19,6 +19,10 @@ namespace Funemployment.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Get all behavioral questions from the API
+        /// </summary>
+        /// <returns>a list of behavioral questions to the view or not found</returns>
         public async Task<IActionResult> Index()
         {
             using (var client = new HttpClient())
@@ -34,20 +38,58 @@ namespace Funemployment.Controllers
                     var obj = JsonConvert.DeserializeObject<List<BehaviorQuestion>>(stringResult);
                     return View(obj);
                 }
-                return View();
+                return NotFound();
             }
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            // add logic to check db for same username
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(Answer answer)
         {
+            await _context.AnswerTable.AddAsync(answer);
+            await _context.SaveChangesAsync();
+            return View();
+        }
+
+        /// <summary>
+        /// gets data for exactly one behavioral questions
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetOneBQ(int? id)
+        {
+            if (id.HasValue)
+            {
+                return View(await OneBQViewModel.FromIDAsync(id.Value, _context));
+            }
+            return View();
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> CreateAnswer(int? id)
+        {
+            if (id.HasValue)
+            {
+                return View(id);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAnswer(Answer answer)
+        {
+            
             await _context.AnswerTable.AddAsync(answer);
             await _context.SaveChangesAsync();
             return View();
