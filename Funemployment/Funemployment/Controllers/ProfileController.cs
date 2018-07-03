@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Funemployment.Data;
 using Funemployment.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace Funemployment.Controllers
 {
@@ -13,9 +14,13 @@ namespace Funemployment.Controllers
 
     private FunemploymentDbContext _context;
 
-    public ProfileController(FunemploymentDbContext context)
+    private readonly IConfiguration Configuration;
+
+    public ProfileController(FunemploymentDbContext context, IConfiguration configuration)
     {
       _context = context;
+        Configuration = configuration;
+
     }
 
     public IActionResult Index(Player player)
