@@ -1,0 +1,8 @@
+﻿@model List<Funemployment.Models.TechnicalQuestion>
+<h1>Technical Questions</h1>
+@foreach (var item in Model)
+{
+    <h2>@item.ProblemDomain</h2>
+    <h2>Difficulty: @item.Difficulty</h2>
+    <p><a asp-controller="Technical" asp-action="GetOne" asp-route-id="@item.ID">View More</a></p>
+}

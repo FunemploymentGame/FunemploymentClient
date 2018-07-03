@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@* This is where the UserName input goes*@
+
+
+@model Funemployment.Models.Player
+
+
+<head>
+
+</head>
+<header>
+    <h1>FUnemployment</h1>
+    <h3>the game!</h3>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="http://funemployment.azurewebsites.net/profile">Home</a></li>
+                <li><a href="http://funemployment.azurewebsites.net/behavioral">Behavioral Questions</a></li>
+                <li><a href="http://funemployment.azurewebsites.net/technical">Technical Questions</a></li>
+                <li><a href="http://funemployment.azurewebsites.net/Profile/Highscores">High Scores</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<form method="post" asp-controller="Home" form-action="Index">
+    <div class="form-group">
+        <label asp-for="Username">Username</label>
+        <input asp-for="Username" />
+        <br />
+        <br />
+    <button type="submit">Create Player</button>
+    </div>
+
+</form>
+
