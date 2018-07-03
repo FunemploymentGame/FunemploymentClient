@@ -22,12 +22,16 @@ namespace Funemployment.Controllers
     {
       return View(player);
     }
-
+    
+        /// <summary>
+        /// sends user to Create View form
+        /// </summary>
+        /// <returns>view</returns>
     [HttpGet]
     public IActionResult Create()
     {
       
-      // Add logic to check Db for same username
+      
       return View();
     }
 
@@ -36,7 +40,7 @@ namespace Funemployment.Controllers
     {
       await _context.PlayerTable.AddAsync(player);
       await _context.SaveChangesAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", player);
     }
 
 
