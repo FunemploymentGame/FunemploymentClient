@@ -1,0 +1,13 @@
+﻿
+@model  Funemployment.Models.OneBQViewModel
+
+<h2>@Model.behaviorQuestion.Content</h2>
+
+@foreach (var item in Model.Answers)
+{
+    <p>@item.Content</p>
+    // add author to answer
+    @*<p><a href="#"></a></p>*@
+
+}
+    <p><a asp-controller="Behavioral" asp-action="CreateAnswer" asp-route-id="@Model.behaviorQuestion.ID">Submit an Answer</a></p>
