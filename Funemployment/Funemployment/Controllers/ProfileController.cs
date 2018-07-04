@@ -12,9 +12,7 @@ namespace Funemployment.Controllers
 {
 	public class ProfileController : Controller
 	{
-
 		private FunemploymentDbContext _context;
-
 		private readonly IConfiguration Configuration;
 
 		public ProfileController(FunemploymentDbContext context, IConfiguration configuration)
@@ -53,16 +51,8 @@ namespace Funemployment.Controllers
 				// HttpResposne object. 
 				// Append means we get to "add" a new cookie
 				Response.Cookies.Append("Player", player.ID.ToString());
-
 			}
-
-
-
 			return RedirectToAction("Index", player);
 		}
-
-
-
-
 	}
 }

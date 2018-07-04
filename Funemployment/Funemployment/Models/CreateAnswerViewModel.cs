@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Funemployment.Models
 {
-    public class CreateAnswerViewModel
-    {
-        public Answer Ans { get; set; }
-        public int ID { get; set; }
-    }
+  public class CreateAnswerViewModel
+  {
+    public Answer Ans { get; set; }
+    public int ID { get; set; }
+  }
 }
