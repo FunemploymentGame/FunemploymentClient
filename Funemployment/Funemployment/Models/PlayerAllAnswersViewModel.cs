@@ -17,15 +17,17 @@ namespace Funemployment.Models
     public List<TechnicalQuestion> TechnicalQuestions { get; set; }
     public Player Player { get; set; }
 
-    public static async Task<PlayerAllAnswersViewModel> FromPlayerIDAsync(int id, FunemploymentDbContext context)
+    public static async Task<PlayerAllAnswersViewModel> FromPlayerIDAsync(int id, FunemploymentDbContext context, List<Answer> bQanswers, List<Answer> tQanswer)
     {
       PlayerAllAnswersViewModel paavm = new PlayerAllAnswersViewModel();
 
       paavm.Player = await context.PlayerTable.FirstOrDefaultAsync(p => p.ID == id);
 
-      paavm.BehaviorAnswers = await context.AnswerTable.Where(a => a.PID == id && a.BQID != 0).Select(s => s).ToListAsync();
+      paavm.BehaviorAnswers = bQanswers;
+        
+        //await context.AnswerTable.Where(a => a.PID == id && a.BQID != 0).Select(s => s).ToListAsync();
 
-      paavm.BehaviorAnswers = await context.AnswerTable.Where(a => a.PID == id && a.TQID != 0).Select(s => s).ToListAsync();
+      paavm.TechnicalAnswers = tQanswer;
 
       using (var client = new HttpClient())
       {

@@ -54,5 +54,26 @@ namespace Funemployment.Controllers
 			}
 			return RedirectToAction("Index", player);
 		}
+
+    public async Task<IActionResult> PlayerAllAnswers(int id)
+    {
+      List<Answer> bQAnswers = _context.AnswerTable.Where(a => a.PID == id && a.BQID != 0).Select(s => s).ToList();
+
+      List<Answer> tQAnswers = _context.AnswerTable.Where(a => a.PID == id && a.TQID != 0).Select(s => s).ToList();
+
+      if (bQAnswers.Count != 0 && tQAnswers.Count != 0)
+      {
+        return View(await PlayerAllAnswersViewModel.FromPlayerIDAsync(id, _context, bQAnswers, tQAnswers));
+      }
+      else
+      {
+        return RedirectToAction("Error", "Profile");
+      }
+    }
+
+    public IActionResult Error()
+    {
+      return View();
+    }
 	}
 }
