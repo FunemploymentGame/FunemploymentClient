@@ -44,21 +44,6 @@ namespace Funemployment.Controllers
 			}
 		}
 
-		[HttpGet]
-		public IActionResult Create()
-		{
-
-			return View();
-		}
-
-		[HttpPost]
-		public async Task<IActionResult> Create(Answer answer)
-		{
-			await _context.AnswerTable.AddAsync(answer);
-			await _context.SaveChangesAsync();
-			return View();
-		}
-
 		/// <summary>
 		/// gets data for exactly one behavioral questions
 		/// </summary>
@@ -74,15 +59,26 @@ namespace Funemployment.Controllers
 			return NoContent();
 		}
 
+        /// <summary>
+        /// Sends user to the View where a form to create new answer
+        /// </summary>
+        /// <param name="id">The ID of the BQ </param>
+        /// <returns>the view with a view model</returns>
 		[HttpGet]
 		public IActionResult CreateAnswer(int id)
 		{
-			CreateAnswerViewModel t = new CreateAnswerViewModel();
-			t.Ans = new Answer();
-			t.ID = id;
-			return View(t);
+			CreateAnswerViewModel cavm = new CreateAnswerViewModel();
+			cavm.Ans = new Answer();
+			cavm.ID = id;
+			return View(cavm);
 		}
 
+        /// <summary>
+        /// Recieves the user input answer from the view's form and saves the answer to the answertable
+        /// and adds points to the player.
+        /// </summary>
+        /// <param name="cavm">create answer view model</param>
+        /// <returns>not found or the profile view</returns>
 		[HttpPost]
 		public async Task<IActionResult> CreateAnswer(CreateAnswerViewModel cavm)
 		{
@@ -95,9 +91,18 @@ namespace Funemployment.Controllers
 			{
 				cavm.Ans.PID = userId;
 			}
-			await _context.AnswerTable.AddAsync(cavm.Ans);
+
+            var player = _context.PlayerTable.FirstOrDefault(p => p.ID == cavm.Ans.PID);
+            if (player == null)
+            {
+                return NotFound();
+            }
+            player.Points++;
+            _context.PlayerTable.Update(player);
+
+            await _context.AnswerTable.AddAsync(cavm.Ans);
 			await _context.SaveChangesAsync();
-			return RedirectToAction("Index");
+			return RedirectToAction("Index", "Profile", player);
 		}
 	}
 }
