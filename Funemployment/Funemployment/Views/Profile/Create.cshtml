@@ -1,26 +1,23 @@
 ﻿@model Funemployment.Models.Player
+<head>
 
-This is create profile page
-
-<form method="post" asp-controller="Profile" form-action="Create">
+</head>
+<body>
+  <h1>funemployment</h1>
+  <p>Welcome, newbie. Just got fired, huh? Create a new profile to join.</p>
+  <form method="post" asp-controller="Profile" form-action="Create">
     <div class="form-group">
-        <label asp-for="Username">Username</label>
-        <input asp-for="Username" />
-        <br />
-        <br />
-
-        <label asp-for="About">Tell Us About you</label>
-        <input asp-for="About" />
-        <br />
-        <br />
-
-        <label asp-for="Location">Where are you Located</label>
-        <input asp-for="Location" />
-        <br />
-        <br />
-
-
-        <button type="submit">Create Player</button>
+      @*<label asp-for="Username">Username</label>*@
+      <input placeholder="Username" asp-for="Username" />
+      @*<label asp-for="Location">Where are you Located</label>*@
+      <input placeholder="Enter your location, i.e. Seattle, WA" asp-for="Location" />
+      @*<label asp-for="About">Tell Us About you</label>*@
+      <input placeholder="Please tell us a little about yourself" asp-for="About" />
+      <button type="submit">Submit</button>
     </div>
-
-</form>
+  </form>
+  <footer>
+    <p>Contribute to the community, hone your skills, get points, win.</p>
+    <p>Then have a sandwich. You earned it.</p>
+  </footer>
+</body>

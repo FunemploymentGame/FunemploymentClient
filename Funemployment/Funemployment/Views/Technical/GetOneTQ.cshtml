@@ -1,0 +1,9 @@
+﻿@model Funemployment.Models.OneTQViewModel
+<h2>@Model.technicalQuestion.ProblemDomain</h2>
+
+@foreach (var item in Model.Answers)
+{
+  <p>@item.Content</p>
+}
+
+  <p><a asp-controller="Technical" asp-action="CreateAnswer" asp-route-id="@Model.technicalQuestion.ID">Submit an Answer</a></p>
