@@ -79,13 +79,13 @@ namespace Funemployment.Controllers
             CreateAnswerViewModel t = new CreateAnswerViewModel();
             t.Ans = new Answer();
             t.ID = id;
-            t.Ans.BQID = id;
             return View(t);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateAnswer(CreateAnswerViewModel cavm)
         {
+            cavm.Ans.BQID = cavm.ID;
             await _context.AnswerTable.AddAsync(cavm.Ans);
             await _context.SaveChangesAsync();
             return View();
