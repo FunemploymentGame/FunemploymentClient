@@ -1,0 +1,6 @@
+﻿@model List<Funemployment.Models.Player>
+
+@foreach (var item in Model)
+{
+    <h2><a asp-controller="Profile" asp-action="ShowOne" asp-route-id="@item.ID">@item.Username</a> : @item.Points points</h2>
+}
