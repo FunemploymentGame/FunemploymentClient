@@ -1,4 +1,5 @@
 ﻿using Funemployment.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -12,12 +13,14 @@ namespace Funemployment.Controllers
     {
         private FunemploymentDbContext _context;
 
-        private readonly IConfiguration Configuration;
+		private readonly IConfiguration Configuration;
 
-        public HomeController(FunemploymentDbContext context, IConfiguration configuration)
+
+		public HomeController(FunemploymentDbContext context, IConfiguration configuration)
         {
             _context = context;
             Configuration = configuration;
+			
         }
 
         public IActionResult Index()
@@ -29,9 +32,17 @@ namespace Funemployment.Controllers
         public IActionResult Index(string username)
         {
             var player = _context.PlayerTable.FirstOrDefault(p => p.Username == username);
+
+			//Make sure that the player object is not null. If this is not null, then
+			// that means that the username exists in the db. 
             if (player != null)
             {
-                return RedirectToAction("Index", "Profile", player);
+				//Response is a part of hte Controller Base and is a part of the 
+				// HttpResposne object. 
+				// Append means we get to "add" a new cookie
+				Response.Cookies.Append("Player", player.ID.ToString());
+
+				return RedirectToAction("Index", "Profile", player);
             }
 
             return RedirectToAction("Create", "Profile");
