@@ -100,7 +100,6 @@ namespace Funemployment.Controllers
             //Update player on playertable
             _context.PlayerTable.Update(player);
             
-
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Profile", player);
         }
