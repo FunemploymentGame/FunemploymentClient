@@ -1,11 +1,31 @@
 ﻿@model Funemployment.Models.Player
-
-This is the Profile View
-
-<h1>Profile</h1>
-<h2>@Model.Username</h2>
-<ul>
-    <li>Location: @Model.Location</li> 
-    <li>About: @Model.About</li>
-    <li>Points: @Model.Points</li>
-</ul>
+  <head>
+  </head>
+  <body>
+    <header>
+      <p>funemployment</p>
+      <h2>@Model.Username</h2>
+      <p>@Model.Location</p>
+    </header>
+    <main>
+      <section>
+        <div><p><a asp-controller="Behavioral" asp-action="Index" asp-route-id="@Model.ID">Behavioral Questions</a></p></div>
+        <div><p><a asp-controller="Technical" asp-action="Index" asp-route-id="@Model.ID">Technical Questions</a></p></div>
+      </section>
+      <section>
+        <h2>Recent Activity</h2>
+        @*This will be the feed.*@
+      </section>
+      <aside>
+        <img src="/images/jackalope.jpg" />
+        <p>About Amanda</p>
+        <p>Blurb will go here.</p>
+      </aside>
+    </main>
+    <h1>Profile</h1>
+    <ul>
+      <li>Location: @Model.Location</li>
+      <li>About: @Model.About</li>
+      <li>Points: @Model.Points</li>
+    </ul>
+  </body>
