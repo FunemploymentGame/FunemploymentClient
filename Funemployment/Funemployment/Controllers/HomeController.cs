@@ -1,4 +1,5 @@
 ﻿using Funemployment.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -11,8 +12,10 @@ namespace Funemployment.Controllers
     public class HomeController : Controller
     {
         private FunemploymentDbContext _context;
+		private HttpResponse _respnse;
 
-        private readonly IConfiguration Configuration;
+
+		private readonly IConfiguration Configuration;
 
         public HomeController(FunemploymentDbContext context, IConfiguration configuration)
         {
@@ -31,7 +34,9 @@ namespace Funemployment.Controllers
             var player = _context.PlayerTable.FirstOrDefault(p => p.Username == username);
             if (player != null)
             {
-                return RedirectToAction("Index", "Profile", player);
+				_respnse.Cookies.Append("Player", player.ID.ToString());
+
+				return RedirectToAction("Index", "Profile", player);
             }
 
             return RedirectToAction("Create", "Profile");
