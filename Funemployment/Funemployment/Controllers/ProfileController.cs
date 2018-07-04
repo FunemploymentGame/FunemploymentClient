@@ -21,22 +21,30 @@ namespace Funemployment.Controllers
 			Configuration = configuration;
 
 		}
-
+        /// <summary>
+        /// Profile view
+        /// </summary>
+        /// <param name="player">The player</param>
+        /// <returns>the view</returns>
 		public IActionResult Index(Player player)
 		{
 			return View(player);
 		}
 
-		/// <summary>
-		/// sends user to Create View form
-		/// </summary>
-		/// <returns>view</returns>
+        /// <summary>
+        /// sends user to Create View form
+        /// </summary>
+        /// <returns>view</returns>
 		[HttpGet]
 		public IActionResult Create()
 		{
 			return View();
 		}
-
+        /// <summary>
+        /// Creates a new player with the user input data, saves to DB and saves ID to cookie
+        /// </summary>
+        /// <param name="player">A player</param>
+        /// <returns>the profile index view</returns>
 		[HttpPost]
 		public async Task<IActionResult> Create(Player player)
 		{
@@ -54,6 +62,28 @@ namespace Funemployment.Controllers
 			}
 			return RedirectToAction("Index", player);
 		}
+    
+            /// <summary>
+        /// Show all users by points descending (highscore)
+        /// </summary>
+        /// <returns>view with list of players</returns>
+        public IActionResult ShowAll()
+        {
+            var players = _context.PlayerTable.Select(s => s).OrderByDescending(p => p.Points).ToList();
+            return View(players);
+        }
+
+        /// <summary>
+        /// Finds a player in playertable by its id and redirects to Index view
+        /// </summary>
+        /// <param name="id">Id of a single user</param>
+        /// <returns>Index view with a player</returns>
+        public IActionResult ShowOne(int id)
+        {
+            var player = _context.PlayerTable.FirstOrDefault(p => p.ID == id);
+            return RedirectToAction("Index", "Profile", player);
+        }
+    }
 
     public async Task<IActionResult> PlayerAllAnswers(int id)
     {
@@ -76,4 +106,5 @@ namespace Funemployment.Controllers
       return View();
     }
 	}
+
 }

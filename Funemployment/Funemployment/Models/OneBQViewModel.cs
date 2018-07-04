@@ -9,32 +9,41 @@ using System.Threading.Tasks;
 
 namespace Funemployment.Models
 {
-  public class OneBQViewModel
-  {
-    public IEnumerable<Answer> Answers { get; set; }
-    public BehaviorQuestion behaviorQuestion { get; set; }
-
-    public static async Task<OneBQViewModel> FromIDAsync(int id, FunemploymentDbContext context)
+    public class OneBQViewModel
     {
-      OneBQViewModel oneBQView = new OneBQViewModel();
+        public IEnumerable<Answer> Answers { get; set; }
+        public BehaviorQuestion behaviorQuestion { get; set; }
 
-      using (var client = new HttpClient())
-      {
-        client.BaseAddress = new Uri("http://funemploymentapi.azurewebsites.net");
 
-        var response = client.GetAsync($"/api/behavior/{id}").Result;
-
-        if (response.EnsureSuccessStatusCode().IsSuccessStatusCode)
+        /// <summary>
+        /// From the id of the BQ, find all answers associated with it and make it into a list of answers
+        /// Find the BQ from the id from the API and deserialize
+        /// </summary>
+        /// <param name="id">ID of the BQ</param>
+        /// <param name="context">DBContext</param>
+        /// <returns>ViewModel</returns>
+        public static async Task<OneBQViewModel> FromIDAsync(int id, FunemploymentDbContext context)
         {
-          var stringResult = await response.Content.ReadAsStringAsync();
+            OneBQViewModel oneBQView = new OneBQViewModel();
 
-          oneBQView.behaviorQuestion = JsonConvert.DeserializeObject<BehaviorQuestion>(stringResult);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://funemploymentapi.azurewebsites.net");
+
+                var response = client.GetAsync($"/api/behavior/{id}").Result;
+
+                if (response.EnsureSuccessStatusCode().IsSuccessStatusCode)
+                {
+                    var stringResult = await response.Content.ReadAsStringAsync();
+
+                    oneBQView.behaviorQuestion = JsonConvert.DeserializeObject<BehaviorQuestion>(stringResult);
+                }
+                
+            }
+
+            oneBQView.Answers = await context.AnswerTable.Where(a => a.BQID == id).Select(s => s).ToListAsync();
+
+            return oneBQView;
         }
-      }
-
-      oneBQView.Answers = await context.AnswerTable.Where(a => a.BQID == id).Select(s => s).ToListAsync();
-
-      return oneBQView;
     }
-  }
 }
