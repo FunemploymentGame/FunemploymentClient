@@ -36,8 +36,6 @@ namespace Funemployment.Controllers
 		[HttpGet]
 		public IActionResult Create()
 		{
-
-
 			return View();
 		}
 
@@ -46,8 +44,19 @@ namespace Funemployment.Controllers
 		{
 			await _context.PlayerTable.AddAsync(player);
 			await _context.SaveChangesAsync();
-			// Add the player's name and ID to a cookie
-			
+
+			// Make sure that the player object is not null. If it is not, 
+			// then set the id of the player to the key/value pair ofthe cookie. 
+			if(player != null)
+			{
+				//Response is a part of hte Controller Base and is a part of the 
+				// HttpResposne object. 
+				// Append means we get to "add" a new cookie
+				Response.Cookies.Append("Player", player.ID.ToString());
+
+			}
+
+
 
 			return RedirectToAction("Index", player);
 		}
