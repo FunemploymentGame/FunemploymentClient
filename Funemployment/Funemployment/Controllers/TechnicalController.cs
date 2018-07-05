@@ -64,12 +64,28 @@ namespace Funemployment.Controllers
         /// <param name="id">The id of the question</param>
         /// <returns>CreateAnswer view sending a viewmodel</returns>
         [HttpGet]
-        public IActionResult CreateAnswer(int id)
+        public async Task<IActionResult> CreateAnswer(int id)
         {
-            CreateAnswerViewModel cavm = new CreateAnswerViewModel();
-            cavm.Ans = new Answer();
-            cavm.ID = id;
-            return View(cavm);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://funemploymentapi.azurewebsites.net");
+
+                var response = client.GetAsync($"/api/technical/{id}").Result;
+
+                if (response.EnsureSuccessStatusCode().IsSuccessStatusCode)
+                {
+                    var stringResult = await response.Content.ReadAsStringAsync();
+
+                    var obj = JsonConvert.DeserializeObject<TechnicalQuestion>(stringResult);
+
+                    CreateAnswerViewModel cavm = new CreateAnswerViewModel();
+                    cavm.Ans = new Answer();
+                    cavm.ID = id;
+                    cavm.Question = obj.ProblemDomain;
+                    return View(cavm);
+                }
+                return NotFound();
+            }
         }
 
         /// <summary>
