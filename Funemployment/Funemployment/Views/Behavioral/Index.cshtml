@@ -3,6 +3,7 @@
 
 @foreach (var item in Model)
 {
-    <h2>@item.Content</h2>
-    <p><a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@item.ID">View More</a></p>
+    <h2>
+        <a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@item.ID">@item.Content</a>
+    </h2>
 }

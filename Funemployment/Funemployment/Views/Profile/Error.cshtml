@@ -1,4 +1,3 @@
-﻿@model int
-Sad Jackalope
+﻿Sad Jackalope
 
-<a asp-controller="Profile" asp-action="ShowOne" asp-route-id="@Model">Return to Profile</a>
+<a asp-controller="Profile" asp-action="ShowOne" asp-route-id="@ViewData["player"]">Return to Profile</a>

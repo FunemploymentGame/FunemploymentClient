@@ -84,6 +84,11 @@ namespace Funemployment.Controllers
             return RedirectToAction("Index", "Profile", player);
         }
 
+        /// <summary>
+        /// Grabs all the Answers the user have answered and calls the method in the view model
+        /// </summary>
+        /// <param name="id">Id of a player</param>
+        /// <returns>An Error page or The view with view model</returns>
         public async Task<IActionResult> PlayerAllAnswers(int id)
         {
             List<Answer> bQAnswers = _context.AnswerTable.Where(a => a.PID == id && a.BQID != 0).Select(s => s).ToList();
@@ -96,13 +101,14 @@ namespace Funemployment.Controllers
             }
             else
             {
-                return RedirectToAction("Error", "Profile", id);
+                return RedirectToAction("Error", "Profile", new { newID = id });
             }
         }
 
-        public IActionResult Error(int id)
+        public IActionResult Error(int newID)
         {
-            return View(id);
+            ViewData["player"] = newID;
+            return View();
         }
     }
 }
