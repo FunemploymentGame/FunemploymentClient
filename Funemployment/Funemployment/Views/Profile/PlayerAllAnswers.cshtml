@@ -2,13 +2,26 @@
 
 @foreach (var question in Model.BehaviorQuestions)
 {
-  <h2>@question.Content</h2>
-  for (var i = 0; i < Model.BehaviorAnswers.Count(); i++)
-  {
-    if (Model.BehaviorAnswers[i].BQID == question.ID)
+    <h2>@question.Content</h2>
+    for (var i = 0; i < Model.BehaviorAnswers.Count(); i++)
     {
-      <p>@Model.BehaviorAnswers[i].Content</p>
+        if (Model.BehaviorAnswers[i].BQID == question.ID)
+        {
+            <p>@Model.BehaviorAnswers[i].Content</p>
+        }
     }
-  }
+
+}
+
+@foreach (var question in Model.TechnicalQuestions)
+{
+    <h2>@question.ProblemDomain</h2>
+    for (var i = 0; i < Model.TechnicalAnswers.Count(); i++)
+    {
+        if (Model.TechnicalAnswers[i].TQID == question.ID)
+        {
+            <p>@Model.TechnicalAnswers[i].Content</p>
+        }
+    }
 
 }
