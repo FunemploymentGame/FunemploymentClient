@@ -2,7 +2,7 @@
 
 @foreach (var question in Model.BehaviorQuestions)
 {
-    <h2>@question.Content</h2>
+    <h2><a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@question.ID">@question.Content</a></h2>
     for (var i = 0; i < Model.BehaviorAnswers.Count(); i++)
     {
         if (Model.BehaviorAnswers[i].BQID == question.ID)
@@ -15,7 +15,7 @@
 
 @foreach (var question in Model.TechnicalQuestions)
 {
-    <h2>@question.ProblemDomain</h2>
+    <h2><a asp-controller="Technical" asp-action="GetOneTQ" asp-route-id="@question.ID">@question.ProblemDomain</a></h2>
     for (var i = 0; i < Model.TechnicalAnswers.Count(); i++)
     {
         if (Model.TechnicalAnswers[i].TQID == question.ID)
