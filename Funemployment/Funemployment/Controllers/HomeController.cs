@@ -15,19 +15,26 @@ namespace Funemployment.Controllers
 
 		private readonly IConfiguration Configuration;
 
-
 		public HomeController(FunemploymentDbContext context, IConfiguration configuration)
         {
             _context = context;
             Configuration = configuration;
 			
         }
-
+        /// <summary>
+        /// Intro Page
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// If the username exists send them to the profile page, if not make a new page
+        /// </summary>
+        /// <param name="username">string possible username</param>
+        /// <returns>profile controller index action or create action</returns>
         [HttpPost]
         public IActionResult Index(string username)
         {

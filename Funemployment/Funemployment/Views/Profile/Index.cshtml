@@ -13,8 +13,10 @@
         <div><p><a asp-controller="Technical" asp-action="Index" asp-route-id="@Model.ID">Technical Questions</a></p></div>
       </section>
       <section>
-        <h2>Recent Activity</h2>
-        @*This will be the feed.*@
+        <p>
+          <a asp-controller="Profile" asp-action="PlayerAllAnswers" asp-route-id="@Model.ID">View Your Answers</a>
+          <h2>Recent Activity</h2>
+          @*This will be the feed.*@
       </section>
       <aside>
         <img src="/images/jackalope.jpg" />
@@ -24,8 +26,9 @@
     </main>
     <h1>Profile</h1>
     <ul>
-      <li>Location: @Model.Location</li>
-      <li>About: @Model.About</li>
-      <li>Points: @Model.Points</li>
+        <li>Location: @Model.Location</li>
+        <li>About: @Model.About</li>
+        <li>Points: @Model.Points</li>
+        <li><a asp-controller="Profile" asp-action="ShowAll">Highscores</a></li>
     </ul>
   </body>

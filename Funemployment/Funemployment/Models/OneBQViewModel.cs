@@ -14,6 +14,14 @@ namespace Funemployment.Models
         public IEnumerable<Answer> Answers { get; set; }
         public BehaviorQuestion behaviorQuestion { get; set; }
 
+
+        /// <summary>
+        /// From the id of the BQ, find all answers associated with it and make it into a list of answers
+        /// Find the BQ from the id from the API and deserialize
+        /// </summary>
+        /// <param name="id">ID of the BQ</param>
+        /// <param name="context">DBContext</param>
+        /// <returns>ViewModel</returns>
         public static async Task<OneBQViewModel> FromIDAsync(int id, FunemploymentDbContext context)
         {
             OneBQViewModel oneBQView = new OneBQViewModel();
