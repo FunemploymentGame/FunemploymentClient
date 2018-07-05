@@ -3,21 +3,24 @@
 <head>
 </head>
 <body>
-  <header>
-    <h1>Funemployment</h1>
-    <h2>Beating your friends is a full-time job.</h2>
-    <hr />
-    <p>Contribute to the community, hone your skills, get points, win.</p>
-    <p>Then have a sandwich. You earned it.</p>
-  </header>
-  <form method="post" asp-controller="Home" form-action="Index">
-    <div class="form-group">
-      <label asp-for="Username">Enter a username to begin</label>
-      <input asp-for="Username" />
-      <br />
-      <br />
-      <button type="submit">Start</button>
-    </div>
-  </form>
+  
+	<main>
+		<header>
+			<div id="main_white"></div>
+			<img id="jackalope_main" src="~/images/jackalope_color.svg" alt="Jackalope" />
+			<h1 id="main_title"><span id="blue_letter">F</span>unemployment</h1>
+			<h2 id="main_subtitle">Beating your friends is a full-time job.</h2>
+			<hr />
+			<p>Contribute to the community, hone your skills, get points, win.</p>
+			<p>Then have a sandwich. You earned it.</p>
+		</header>
+		<form method="post" asp-controller="Home" form-action="Index">
+			<div class="form-group">
+				<label id="main_label" asp-for="Username">Enter a username to begin</label>
+				<input id="main_input"asp-for="Username" />
+				<button type="submit">Start</button>
+			</div>
+		</form>
+	</main>
 </body>
 
