@@ -1,0 +1,25 @@
+﻿h1 
+{
+	margin: 1rem;
+	color: rgb(255, 112, 112);
+	font-size: 3.5rem;
+	text-transform: lowercase;
+}
+
+h2
+{
+}
+
+p
+{
+	font-size: 1.5vw;
+	font-weight: 300;
+	line-height: .5rem;
+}
+
+header 
+{
+	position: relative;
+	z-index: 0;
+}
+

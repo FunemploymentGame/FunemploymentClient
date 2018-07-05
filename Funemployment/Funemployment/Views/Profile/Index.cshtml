@@ -1,7 +1,6 @@
 ﻿@model Funemployment.Models.Player
-  <head>
-  </head>
-  <body>
+@{ }
+
     <header>
       <p>funemployment</p>
       <h2>@Model.Username</h2>
@@ -20,7 +19,7 @@
       </section>
       <aside>
         <img src="/images/jackalope.jpg" />
-        <p>About Amanda</p>
+        <p>About</p>
         <p>Blurb will go here.</p>
       </aside>
     </main>
@@ -31,4 +30,3 @@
         <li>Points: @Model.Points</li>
         <li><a asp-controller="Profile" asp-action="ShowAll">Highscores</a></li>
     </ul>
-  </body>
