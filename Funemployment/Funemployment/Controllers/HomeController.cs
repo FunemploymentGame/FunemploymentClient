@@ -54,5 +54,14 @@ namespace Funemployment.Controllers
 
             return RedirectToAction("Create", "Profile");
         }
+
+        public IActionResult BackToProfile()
+        {
+            if (Int32.TryParse(Request.Cookies["Player"], out int userId))
+            {
+                return RedirectToAction("ShowOne", "Profile", new { id = userId });
+            }
+            return NotFound();
+        }
     }
 }
