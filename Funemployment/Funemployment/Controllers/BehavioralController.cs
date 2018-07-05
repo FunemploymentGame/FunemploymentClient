@@ -65,12 +65,28 @@ namespace Funemployment.Controllers
         /// <param name="id">The ID of the BQ </param>
         /// <returns>the view with a view model</returns>
 		[HttpGet]
-		public IActionResult CreateAnswer(int id)
+		public  async Task<IActionResult> CreateAnswer(int id)
 		{
-			CreateAnswerViewModel cavm = new CreateAnswerViewModel();
-			cavm.Ans = new Answer();
-			cavm.ID = id;
-			return View(cavm);
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://funemploymentapi.azurewebsites.net");
+
+                var response = client.GetAsync($"/api/behavior/{id}").Result;
+
+                if (response.EnsureSuccessStatusCode().IsSuccessStatusCode)
+                {
+                    var stringResult = await response.Content.ReadAsStringAsync();
+
+                    var obj = JsonConvert.DeserializeObject<BehaviorQuestion>(stringResult);
+
+                    CreateAnswerViewModel cavm = new CreateAnswerViewModel();
+                    cavm.Ans = new Answer();
+                    cavm.ID = id;
+                    cavm.Question = obj.Content;
+                    return View(cavm);
+                }
+                return NotFound();
+            }
 		}
 
         /// <summary>
