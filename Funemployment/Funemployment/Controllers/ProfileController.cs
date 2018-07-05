@@ -90,7 +90,7 @@ namespace Funemployment.Controllers
 
             List<Answer> tQAnswers = _context.AnswerTable.Where(a => a.PID == id && a.TQID != 0).Select(s => s).ToList();
 
-            if (bQAnswers.Count != 0 && tQAnswers.Count != 0)
+            if (bQAnswers.Count != 0 || tQAnswers.Count != 0)
             {
                 return View(await PlayerAllAnswersViewModel.FromPlayerIDAsync(id, _context, bQAnswers, tQAnswers));
             }
