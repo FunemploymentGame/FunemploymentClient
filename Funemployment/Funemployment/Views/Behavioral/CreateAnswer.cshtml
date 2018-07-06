@@ -1,16 +1,26 @@
 ﻿@using Funemployment.Models
 @model Funemployment.Models.CreateAnswerViewModel 
 
-<h2>@Model.Question</h2>
+<head>
+	<link type="text/css" href="~/styles/create_answer.css" rel="stylesheet" />
+</head>
 
-<form method="post" asp-controller="Behavioral" form-action="CreateAnswer">
-    <div class="form-group">
-        <label asp-for="@Model.Ans.Content">Your Answer</label>
-        <input asp-for="@Model.Ans.Content" />
-        <br />
-        <br />
+<main>
+	<header>
+		<h2><a id="nav_profile" asp-controller="Home" asp-action="BackToProfile">To Profile</a></h2>
+		<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+	</header>
+	<h2 class="questions_header">
+		<span class="questions_bold">Behavioral</span> Questions:
+		<span class="content">@Model.Question</span>
+	</h2>
+	<form method="post" asp-controller="Behavioral" form-action="CreateAnswer">
+		<div class="form-group">
+			<input class="create_input" placeholder="Your answer here" asp-for="@Model.Ans.Content" />
+			<br />
+			<br />
+			<button type="submit">Add Answer</button>
+		</div>
+	</form>
+</main>
 
-        <button type="submit">Add Answer</button>
-    </div>
-
-</form>

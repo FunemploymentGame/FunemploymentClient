@@ -1,13 +1,23 @@
 ﻿@model List<Funemployment.Models.BehaviorQuestion>
 
-<a asp-controller="Home" asp-action="BackToProfile">To Profile</a>
+<head>
+	<link type="text/css" href="~/styles/questions.css" rel="stylesheet" />
+</head>
+<body>
+	<main>
+		<header>
+			<h2><a id="nav_profile" asp-controller="Home" asp-action="BackToProfile">To Profile</a></h2>
+			<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+		</header>
 
+		<h2 class="questions_header"><span class="questions_bold">Behavioral</span> Questions</h2>
 
-<h1>Behavior Questions</h1>
-
-@foreach (var item in Model)
-{
-    <h2>
-        <a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@item.ID">@item.Content</a>
-    </h2>
-}
+		@foreach (var item in Model)
+		{
+			<h2 class="questions_list">
+				<a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@item.ID">@item.Content</a>
+			</h2>
+			<hr />
+		}
+	</main>
+</body>
