@@ -23,17 +23,22 @@ For an interactive OpenAPI documentation, please visit [here](http://funemployme
 Our Interview Question API is custom made by the Funemployment team.
 
 Here is all of our endpoints.
+
 ![APIendpoints](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/readme_assets/swagger_endpoints.PNG)
 
 An example to get one by specific ID
+
 ![get1byID](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/readme_assets/getbyidExample.PNG)
 
 ## Database Schema
 Overall Data Schema
+
 ![overall](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/readme_assets/overallDataSchema.PNG)
 Data Schema for frontend 
+
 ![frontData](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/readme_assets/frontendDataSchema.PNG)
 Data Schema for API
+
 ![apiData](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/readme_assets/apiDataSchema.PNG)
 
 
@@ -50,6 +55,7 @@ API Data Schema
 * TechnicalQuestions hold information about each technical interview questions
 
 ## Wire Frames
+
 ![landing](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/WireFrames/Funemployment-LandingPage.jpg)
 ![newUser](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/WireFrames/Funemployment-NewUserForm.jpg)
 ![profPage](https://github.com/FunemploymentGame/FunemploymentClient/blob/readme/Funemployment/Funemployment/wwwroot/WireFrames/Funemployment-ProfilePage.jpg)
@@ -63,6 +69,7 @@ API Data Schema
 * Visual Studio Team Services
 * Swagger
 * Azure
+* SQL
 
 ## Contributors
 * Jermaine Walker
