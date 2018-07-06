@@ -1,13 +1,27 @@
 ﻿
 @model  Funemployment.Models.OneBQViewModel
+<head>
+	<link type="text/css" href="~/styles/get_question.css" rel="stylesheet" />
+</head>
+<body>
+	<main>
+		<header>
+			<h2><a id="nav_profile" asp-controller="Home" asp-action="BackToProfile">To Profile</a></h2>
+			<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+		</header>
 
-<h2>@Model.behaviorQuestion.Content</h2>
+		<h2 class="questions_header">
+			<span class="questions_bold">Behavioral</span> Questions:
+			<span class="content">@Model.behaviorQuestion.Content</span>
+		</h2>
+		<button class="answer_button"><a asp-controller="Behavioral" asp-action="CreateAnswer" asp-route-id="@Model.behaviorQuestion.ID">Answer</a></button>
 
-@foreach (var item in Model.Answers)
-{
-    <p>@item.Content</p>
-    // add author to answer
-    @*<p><a href="#"></a></p>*@
-
-}
-    <p><a asp-controller="Behavioral" asp-action="CreateAnswer" asp-route-id="@Model.behaviorQuestion.ID">Submit an Answer</a></p>
+		<section class="answers_section">
+			@foreach (var item in Model.Answers)
+			{
+				<h2 class="answers_list">@item.Content</h2>
+				<hr />
+			}
+		</section>
+	</main>
+</body>

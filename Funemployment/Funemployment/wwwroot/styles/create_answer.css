@@ -1,0 +1,188 @@
+﻿body {
+	background: linear-gradient(rgb(255, 112, 112), rgb(0, 148, 255));
+	background-repeat: no-repeat;
+	height: 105%;
+	font-family: 'IBM Plex Sans';
+	font-size: 16px;
+}
+
+main {
+	position: relative;
+	background: rgb(235, 235, 235);
+	margin: 5vh auto 0;
+	height: 100vh;
+	width: 80vw;
+	padding-bottom: 1rem;
+}
+
+header {
+	height: 5rem;
+	background: rgb(255, 255, 255);
+}
+
+#nav_profile {
+	font-weight: 400;
+	color: rgb(0, 148, 255);
+	text-transform: lowercase;
+	text-decoration: none;
+	position: absolute;
+	left: 2rem;
+	top: 1.5rem;
+}
+
+	#nav_profile:hover {
+		color: rgb(255, 112, 112);
+	}
+
+p {
+	color: rgb(175, 175, 175);
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 0.5rem;
+}
+
+#blue_letter {
+	color: rgb(0, 148, 255);
+	text-transform: lowercase;
+}
+
+#site_logo {
+	color: rgb(255, 112, 112);
+	text-transform: lowercase;
+	font-weight: 400;
+	position: absolute;
+	margin: 0;
+	right: 2rem;
+	top: 1.5rem;
+}
+
+.questions_header {
+	margin: 2rem auto;
+	width: 80%;
+	text-transform: uppercase;
+	padding: 2rem;
+	font-size: 1rem;
+	font-style: italic;
+	color: rgb(175, 175, 175);
+	background: rgb(255, 255, 255);
+	font-weight: 300;
+	box-shadow: 0px 0px 0.45rem 0.02rem rgba(0,0,0,0.125);
+}
+
+.questions_bold {
+	font-style: normal;
+	display: inline-block;
+	text-transform: lowercase;
+	font-weight: 700;
+	font-size: 1.75rem;
+	color: rgb(75,75,75);
+}
+
+.content {
+	display: block;
+	font-size: 2.5rem;
+	text-transform: lowercase;
+	font-weight: 700;
+	font-style: normal;
+	color: rgb(0, 148, 255);
+}
+
+.answers_list {
+	display: inline-block;
+	width: 50vw;
+	color: rgb(175,175,175);
+	margin-left: 6.5vw;
+	text-decoration: none;
+}
+
+.answers_section {
+	clear: both;
+}
+
+hr {
+	height: 1px;
+	border: none;
+	text-align: left;
+	background: rgb(225, 225, 225);
+	width: 70%;
+	margin-left: 6.5vw;
+}
+
+.answer_button {
+	margin-right: 6.5vw;
+	float: right;
+	display: block;
+	text-align: center;
+	border: none;
+	width: 8rem;
+	height: 4.5rem;
+	background: rgb(255, 112, 112);
+	box-shadow: 0px 0px 0.45rem 0.02rem rgba(0,0,0,0.125);
+}
+
+.answer_button > a {
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: rgb(255, 255, 255);
+	text-transform: lowercase;
+	font-weight: 700;
+}
+
+.button_bold {
+	display: block;
+	text-transform: lowercase;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 1.75rem;
+	color: rgb(75,75,75);
+}
+
+.button_bold:hover {
+	color: rgb(255, 112, 112);
+}
+
+button {
+	margin-left: 6.5vw;
+	font-size: 1.5rem;
+	color: rgb(255, 255, 255);
+	text-transform: lowercase;
+	padding: 1rem 1.75rem;
+	border: none;
+	background: rgb(0, 148, 255);
+	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
+}
+
+button:hover {
+	background: linear-gradient(to right, rgb(255, 112, 112), rgb(0, 148, 255));
+}
+
+.create_input {
+	color: rgb(175, 175, 175);
+	font-size: 2rem;
+	padding-left: 2rem;
+	margin-left: 6.5vw;
+	display: block;
+	border: none;
+	width: 70vw;
+	max-width: 50vw;
+	height: 10vh;
+	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
+}
+
+*::-webkit-input-placeholder {
+	color: rgb(175, 175, 175);
+}
+
+*:-moz-placeholder {
+	color: rgb(175, 175, 175);
+}
+
+*::-moz-placeholder {
+	/* FF 19+ */
+	color: rgb(175, 175, 175);
+}
+
+*:-ms-input-placeholder {
+	/* IE 10+ */
+	color: rgb(175, 175, 175);
+}
