@@ -1,0 +1,57 @@
+﻿h1 
+{
+	margin: 1rem;
+	color: rgb(255, 112, 112);
+	text-transform: lowercase;
+}
+
+header 
+{
+	height: 20vh;
+	z-index: 0;
+	outline: 1px solid green;
+}
+
+.title 
+{
+	font-size: 6vw;
+	padding-top: 2rem;
+	color: rgb(255, 112, 112);
+}
+
+input 
+{
+	padding: .5rem 1.5rem;
+	color: rgb(175, 175, 175);
+	font-size: 2rem;
+	font-weight: 300;
+	margin: 1rem auto;
+	display: block;
+	border: none;
+	width: 70vw;
+	max-width: 50vw;
+	height: 10vh;
+	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
+}
+
+button 
+{
+	font-size: 1.1rem;
+	color: rgb(255, 255, 255);
+	text-transform: lowercase;
+	padding: 1rem 1.75rem;
+	border: none;
+	background: rgb(0, 148, 255);
+	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
+}
+
+button:hover {
+	background: linear-gradient(to right, rgb(255, 112, 112), rgb(0, 148, 255));
+}
+
+#create_form
+{
+	box-sizing: border-box;
+	margin: 2rem auto;
+	width: 70vw;
+}

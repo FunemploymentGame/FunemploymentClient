@@ -1,32 +1,28 @@
 ﻿@model Funemployment.Models.Player
 @{ }
-
-    <header>
-      <p>funemployment</p>
-      <h2>@Model.Username</h2>
-      <p>@Model.Location</p>
-    </header>
-    <main>
-      <section>
-        <div><p><a asp-controller="Behavioral" asp-action="Index" asp-route-id="@Model.ID">Behavioral Questions</a></p></div>
-        <div><p><a asp-controller="Technical" asp-action="Index" asp-route-id="@Model.ID">Technical Questions</a></p></div>
-      </section>
-      <section>
-        <p>
-          <a asp-controller="Profile" asp-action="PlayerAllAnswers" asp-route-id="@Model.ID">View Your Answers</a>
-          <h2>Recent Activity</h2>
-          @*This will be the feed.*@
-      </section>
-      <aside>
-        <img src="/images/jackalope.jpg" />
-        <p>About</p>
-        <p>Blurb will go here.</p>
-      </aside>
-    </main>
-    <h1>Profile</h1>
-    <ul>
-        <li>Location: @Model.Location</li>
-        <li>About: @Model.About</li>
-        <li>Points: @Model.Points</li>
-        <li><a asp-controller="Profile" asp-action="ShowAll">Highscores</a></li>
-    </ul>
+<main>
+	<aside id="profile_card">
+		<img id="jackalope_profile" src="~/images/jackalope_profile.svg" />
+		<p>About @Model.Username</p>
+		<p>@Model.About</p>
+		<p>@Model.Points</p>
+		<a asp-controller="Profile" asp-action="PlayerAllAnswers" asp-route-id="@Model.ID">View Your Answers</a>
+		<a asp-controller="Profile" asp-action="ShowAll">Highscores</a>
+	</aside>
+	<header>
+		<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+		<section id="user_heading">
+			<h2>@Model.Username</h2>
+			<p>@Model.Location</p>
+		</section>
+	</header>
+	<section>
+		<div><p><a asp-controller="Behavioral" asp-action="Index" asp-route-id="@Model.ID">Behavioral Questions</a></p></div>
+		<div><p><a asp-controller="Technical" asp-action="Index" asp-route-id="@Model.ID">Technical Questions</a></p></div>
+	</section>
+	<section>
+		<p>
+			<h2>Recent Activity</h2>
+			@*This will be the feed.*@
+	</section>
+</main>

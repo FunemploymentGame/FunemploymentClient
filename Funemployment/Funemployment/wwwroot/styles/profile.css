@@ -1,0 +1,43 @@
+﻿#jackalope_profile {
+	width: 12rem;
+}
+
+#profile_card {
+	outline: 1px solid red;
+	float: left;
+}
+
+#user_heading {
+	margin-top: 10rem;
+	outline: 1px solid red;
+}
+
+#site_logo {
+	color: rgb(255, 112, 112);
+	text-transform: lowercase;
+	font-weight: 400;
+	position: absolute;
+	margin: 0;
+	right: 1.5rem;
+	top: 1rem;
+}
+
+input {
+	padding: .5rem 1.5rem;
+	color: rgb(175, 175, 175);
+	font-size: 2rem;
+	font-weight: 300;
+	margin: 1rem auto;
+	display: block;
+	border: none;
+	width: 70vw;
+	max-width: 50vw;
+	height: 10vh;
+	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
+}
+
+.main_body {
+	font-size: 1.35vw;
+	font-weight: 300;
+	line-height: .5rem;
+}

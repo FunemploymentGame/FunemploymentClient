@@ -1,0 +1,127 @@
+﻿#landing_main {
+	position: relative;
+	background: rgb(235, 235, 235);
+	margin: 5vh auto 0;
+	text-align: center;
+	height: 92.75vh;
+	width: 80vw;
+	padding-bottom: 1rem;
+}
+
+#landing_header {
+	height: 20vh;
+	z-index: 0;
+	outline: 1px solid green;
+}
+
+#jackalope_main {
+	width: 12rem;
+	margin-top: 1rem;
+}
+
+#jackalope_profile 
+{
+	width: 12rem;
+}
+
+#profile_card
+{
+	outline: 1px solid red;
+	float: left;
+}
+
+#user_heading
+{
+	margin-top: 10rem;
+	outline: 1px solid red;
+}
+
+#main_title {
+	font-size: 6vw;
+	margin-top: 0;
+	color: rgb(255, 112, 112);
+}
+
+#main_subtitle {
+	color: rgb(175, 175, 175);
+	margin-top: 0;
+	font-weight: 700;
+	font-size: 1.75vw;
+	text-transform: uppercase;
+	font-style: italic;
+}
+
+.main_body {
+	font-size: 1.35vw;
+	font-weight: 300;
+	line-height: .5rem;
+}
+
+#main_white {
+	height: 20vh;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	background: rgb(255, 255, 255);
+	z-index: -2;
+}
+
+#blue_letter {
+	color: rgb(0, 148, 255);
+}
+
+#main_label {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 400;
+	color: rgb(0, 148, 255);
+}
+
+#main_input {
+	color: rgb(175, 175, 175);
+	font-size: 2rem;
+	text-align: center;
+	margin: 1rem auto;
+	display: block;
+	border: none;
+	width: 70vw;
+	max-width: 50vw;
+	height: 10vh;
+	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
+}
+
+#main_hr {
+	margin: 1.5rem;
+	background: rgb(191, 191, 191);
+	border: 0;
+	height: .75px;
+	width: 30vw;
+}
+
+#site_logo {
+	color: rgb(255, 112, 112);
+	text-transform: lowercase;
+	font-weight: 400;
+	position: absolute;
+	margin: 0;
+	right: 1.5rem;
+	top: 1rem;
+}
+
+*::-webkit-input-placeholder {
+	color: rgb(175, 175, 175);
+}
+
+*:-moz-placeholder {
+	color: rgb(175, 175, 175);
+}
+
+*::-moz-placeholder {
+	/* FF 19+ */
+	color: rgb(175, 175, 175);
+}
+
+*:-ms-input-placeholder {
+	/* IE 10+ */
+	color: rgb(175, 175, 175);
+}
