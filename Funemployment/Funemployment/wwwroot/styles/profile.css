@@ -95,6 +95,10 @@ p > a {
 	font-weight: 700;
 }
 
+#card_quote {
+	line-height: 1rem;
+}
+
 hr {
 	border: none;
 	height: 1px;
