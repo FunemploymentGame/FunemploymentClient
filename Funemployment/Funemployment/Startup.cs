@@ -23,7 +23,7 @@ namespace Funemployment
             builder.AddUserSecrets<Startup>();
             Configuration = builder.Build();
 			//for local
-			Configuration = configuration;
+			//Configuration = configuration;
 		}
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Funemployment
         {
             services.AddMvc();
 			//for local
-			services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+			//services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddDbContext<FunemploymentDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
         }
