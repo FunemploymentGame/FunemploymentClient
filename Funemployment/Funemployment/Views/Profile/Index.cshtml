@@ -9,7 +9,7 @@
 			<section id="card_section">
 				<p id="card_username">About @Model.Username</p>
 				<hr />
-				<p>@Model.About</p>
+				<p id="card_quote">@Model.About</p>
 				<p id="card_score">Score @Model.Points</p>
 				<p><a asp-controller="Profile" asp-action="PlayerAllAnswers" asp-route-id="@Model.ID">Your Answers</a></p>
 				<p><a asp-controller="Profile" asp-action="ShowAll">Highscores</a></p>
