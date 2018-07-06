@@ -44,9 +44,9 @@ namespace Funemployment.Controllers
 			// that means that the username exists in the db. 
             if (player != null)
             {
-				//Response is a part of hte Controller Base and is a part of the 
-				// HttpResposne object. 
-				// Append means we get to "add" a new cookie
+				//Response comes with the Controller Base and is a  
+				// HttpResponse object. 
+				// We then add the user info into the Player cookie
 				Response.Cookies.Append("Player", player.ID.ToString());
 
 				return RedirectToAction("Index", "Profile", player);
