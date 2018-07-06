@@ -109,11 +109,14 @@ namespace Funemployment.Controllers
 			}
 
             var player = _context.PlayerTable.FirstOrDefault(p => p.ID == cavm.Ans.PID);
+
             if (player == null)
             {
                 return NotFound();
             }
+
             player.Points++;
+
             _context.PlayerTable.Update(player);
 
             await _context.AnswerTable.AddAsync(cavm.Ans);
