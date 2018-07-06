@@ -1,19 +1,19 @@
 ﻿@model Funemployment.Models.Player
 <head>
-
+	<link type="text/css" href="~/styles/create_player.css" rel="stylesheet" />
 </head>
 <body>
 	<main>
-		<h1 class="title"><span id="blue_letter">F</span>unemployment</h1>
+		<h1 id="create_title"><span id="blue_letter">F</span>unemployment</h1>
 		<p>Welcome, newbie. Just got fired, huh? Create a new profile to join.</p>
 		<form id="create_form" method="post" asp-controller="Profile" form-action="Create">
 			<div class="form-group">
 				@*<label asp-for="Username">Username</label>*@
-				<input placeholder="Username" asp-for="Username" />
+				<input class="create_input" placeholder="Username" asp-for="Username" />
 				@*<label asp-for="Location">Where are you Located</label>*@
-				<input placeholder="Enter your location, i.e. Seattle, WA" asp-for="Location" />
+				<input class="create_input" placeholder="Enter your location, i.e. Seattle, WA" asp-for="Location" />
 				@*<label asp-for="About">Tell Us About you</label>*@
-				<input placeholder="Favorite quote" asp-for="About"></input>
+				<input class="create_input" placeholder="Favorite quote" asp-for="About"></input>
 
 				<button type="submit">Submit</button>
 			</div>

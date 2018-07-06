@@ -1,4 +1,4 @@
-﻿#landing_body {
+﻿body {
 	background: linear-gradient(rgb(255, 112, 112), rgb(0, 148, 255));
 	background-repeat: no-repeat;
 	height: 100%;
@@ -6,46 +6,26 @@
 	font-size: 16px;
 }
 
-#landing_main {
-	position: relative;
+main {
 	background: rgb(235, 235, 235);
 	margin: 5vh auto 0;
 	text-align: center;
 	height: 92.75vh;
 	width: 80vw;
-	padding-bottom: 1rem;
+	padding: .5rem 0;
 }
 
-#landing_header {
-	background: rgb(255, 255, 255);
-	height: 20vh;
-	z-index: 0;
-}
-
-#landing_jackalope {
-	width: 12rem;
-	margin-top: 1rem;
-}
-
-#landing_title {
-	font-size: 6vw;
-	margin: 1rem;
-	color: rgb(255, 112, 112);
-}
-
-.landing_caption {
+p 
+{
 	font-size: 1.35vw;
 	font-weight: 300;
 	line-height: .5rem;
 }
 
-#landing_subtitle {
-	color: rgb(175, 175, 175);
-	margin-top: 0;
-	font-weight: 700;
-	font-size: 1.75vw;
-	text-transform: uppercase;
-	font-style: italic;
+#create_title {
+	font-size: 6vw;
+	margin: 5rem 1rem 1rem 1rem;
+	color: rgb(255, 112, 112);
 }
 
 #blue_letter {
@@ -53,17 +33,10 @@
 	text-transform: lowercase;
 }
 
-#landing_label {
-	font-size: 1.5rem;
-	text-transform: uppercase;
-	font-weight: 400;
-	color: rgb(0, 148, 255);
-}
-
-#landing_input {
+.create_input {
 	color: rgb(175, 175, 175);
 	font-size: 2rem;
-	text-align: center;
+	padding-left: 2rem;
 	margin: 1rem auto;
 	display: block;
 	border: none;
@@ -72,15 +45,6 @@
 	height: 10vh;
 	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
 }
-
-#landing_hr {
-	margin: 2.5rem 0;
-	background: rgb(191, 191, 191);
-	border: 0;
-	height: .75px;
-	width: 30vw;
-}
-
 
 *::-webkit-input-placeholder {
 	color: rgb(175, 175, 175);
@@ -101,6 +65,7 @@
 }
 
 button {
+	margin-top: 2rem;
 	font-size: 1.5rem;
 	color: rgb(255, 255, 255);
 	text-transform: lowercase;
@@ -110,6 +75,6 @@ button {
 	box-shadow: 0 0 .325rem .025rem rgba(0, 0, 0, .125);
 }
 
-button:hover {
-	background: linear-gradient(to right, rgb(255, 112, 112), rgb(0, 148, 255));
-}
+	button:hover {
+		background: linear-gradient(to right, rgb(255, 112, 112), rgb(0, 148, 255));
+	}
