@@ -1,32 +1,36 @@
 ﻿@model Funemployment.Models.Player
-@{ }
+<head>
+	<link type="text/css" href="~/styles/profile.css" rel="stylesheet" />
+</head>
+<body>
+	<main>
+		<aside id="profile_card">
+			<img id="profile_jackalope" src="~/images/jackalope_profile.svg" />
+			<section id="card_section">
+				<p id="card_username">About @Model.Username</p>
+				<hr />
+				<p>@Model.About</p>
+				<p id="card_score">Score @Model.Points</p>
+				<p><a asp-controller="Profile" asp-action="PlayerAllAnswers" asp-route-id="@Model.ID">Your Answers</a></p>
+				<p><a asp-controller="Profile" asp-action="ShowAll">Highscores</a></p>
+			</section>
+		</aside>
+		<header id="profile_header">
+			<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+			<section id="user_heading">
+				<h2>@Model.Username <span id="score_tag">@Model.Points</span></h2>
+				<p>@Model.Location</p>
+			</section>
+		</header>
+		<section id="button_section">
+			<button class="question_button"><a asp-controller="Behavioral" asp-action="Index" asp-route-id="@Model.ID"><span class="button_bold">Behavioral</span> Questions</a></button>
 
-    <header>
-      <p>funemployment</p>
-      <h2>@Model.Username</h2>
-      <p>@Model.Location</p>
-    </header>
-    <main>
-      <section>
-        <div><p><a asp-controller="Behavioral" asp-action="Index" asp-route-id="@Model.ID">Behavioral Questions</a></p></div>
-        <div><p><a asp-controller="Technical" asp-action="Index" asp-route-id="@Model.ID">Technical Questions</a></p></div>
-      </section>
-      <section>
-        <p>
-          <a asp-controller="Profile" asp-action="PlayerAllAnswers" asp-route-id="@Model.ID">View Your Answers</a>
-          <h2>Recent Activity</h2>
-          @*This will be the feed.*@
-      </section>
-      <aside>
-        <img src="/images/jackalope.jpg" />
-        <p>About</p>
-        <p>Blurb will go here.</p>
-      </aside>
-    </main>
-    <h1>Profile</h1>
-    <ul>
-        <li>Location: @Model.Location</li>
-        <li>About: @Model.About</li>
-        <li>Points: @Model.Points</li>
-        <li><a asp-controller="Profile" asp-action="ShowAll">Highscores</a></li>
-    </ul>
+			<button class="question_button"><a asp-controller="Technical" asp-action="Index" asp-route-id="@Model.ID"><span class="button_bold">Technical</span> Questions</a></button>
+		</section>
+		<section id="recent_activity">
+				<h2>Recent Activity</h2>
+				<p>Coming soon</p>
+		</section>
+	</main>
+</body>
+

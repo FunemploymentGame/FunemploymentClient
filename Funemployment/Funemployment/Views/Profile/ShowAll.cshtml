@@ -1,6 +1,24 @@
 ﻿@model List<Funemployment.Models.Player>
 
-@foreach (var item in Model)
-{
-    <h2><a asp-controller="Profile" asp-action="ShowOne" asp-route-id="@item.ID">@item.Username</a> : @item.Points points</h2>
-}
+<head>
+	<link type="text/css" href="~/styles/players_showall.css" rel="stylesheet" />
+</head>
+<body>
+	<main>
+		<header>
+			<h2><a id="nav_profile" asp-controller="Home" asp-action="BackToProfile">To Profile</a></h2>
+			<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+		</header>
+
+		<h2 class="questions_header">
+			<span class="questions_bold">Top</span> Funemployed:
+			<span class="content">High Scores</span>
+		</h2>
+
+		@foreach (var item in Model)
+		{
+			<h2 class="players_points"><a id="top_players" asp-controller="Profile" asp-action="ShowOne" asp-route-id="@item.ID">@item.Username</a> @item.Points points</h2>
+			<hr />
+		}
+	</main>
+</body>
