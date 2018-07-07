@@ -5,11 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Linq;
 using Xunit;
 
 namespace XUnitTestProject2
 {
-    public class BehaviorControllerTests
+    public class TechnicalControllerTests
     {
 
         private readonly IConfiguration Configuration;
@@ -17,48 +18,49 @@ namespace XUnitTestProject2
         private FunemploymentDbContext _context;
 
         [Fact]
-        public async System.Threading.Tasks.Task BehaviorIndexWorksAsync()
+        public async System.Threading.Tasks.Task TechnicalIndexWorksAsync()
         {
 
             DbContextOptions<FunemploymentDbContext> options = new DbContextOptionsBuilder<FunemploymentDbContext>()
-    .UseInMemoryDatabase("BehaviorIndexRedirects")
+    .UseInMemoryDatabase("TechnicalIndexRedirects")
     .Options;
 
             using (FunemploymentDbContext context = new FunemploymentDbContext(options))
             {
-                BehavioralController bc = new BehavioralController(context);
+                TechnicalController tc = new TechnicalController(context);
 
                 Player player = new Player();
                 player.Username = "testUser";
                 player.Location = "testLocation";
                 player.About = "testAbout";
 
-                var x = bc.Index();
+                var x = tc.Index();
 
                 var y = await OneBQViewModel.FromIDAsync(1, context);
                 Assert.NotEmpty(y.behaviorQuestion.Content);
+
                 Assert.IsType<ViewResult>(x.Result);
             }
         }
 
         [Fact]
-        public void BehaviorGetONeWorks()
+        public void TechnicalGetONeWorks()
         {
 
             DbContextOptions<FunemploymentDbContext> options = new DbContextOptionsBuilder<FunemploymentDbContext>()
-    .UseInMemoryDatabase("BehaviorGetOne")
+    .UseInMemoryDatabase("TechnicalGetOne")
     .Options;
 
             using (FunemploymentDbContext context = new FunemploymentDbContext(options))
             {
-                BehavioralController bc = new BehavioralController(context);
+               TechnicalController tc = new TechnicalController(context);
 
                 Player player = new Player();
                 player.Username = "testUser";
                 player.Location = "testLocation";
                 player.About = "testAbout";
 
-                var x = bc.GetOneBQ(null);
+                var x = tc.GetOneTQ(null);
 
 
                 Assert.IsType<NoContentResult>(x.Result);
@@ -70,12 +72,12 @@ namespace XUnitTestProject2
         {
 
             DbContextOptions<FunemploymentDbContext> options = new DbContextOptionsBuilder<FunemploymentDbContext>()
-    .UseInMemoryDatabase("BehaviorIndexRedirects")
+    .UseInMemoryDatabase("TechnicalndexRedirects")
     .Options;
 
             using (FunemploymentDbContext context = new FunemploymentDbContext(options))
             {
-                BehavioralController bc = new BehavioralController(context);
+                TechnicalController tc = new TechnicalController(context);
 
                 Player player = new Player();
                 player.Username = "testUser";
@@ -85,9 +87,9 @@ namespace XUnitTestProject2
                 Answer answer = new Answer();
                 answer.Content = "testContent";
                 answer.BQID = 100;
-                
 
-                var x = bc.CreateAnswer(100);
+
+                var x = tc.CreateAnswer(100);
 
 
 
@@ -105,7 +107,7 @@ namespace XUnitTestProject2
 
             using (FunemploymentDbContext context = new FunemploymentDbContext(options))
             {
-                BehavioralController bc = new BehavioralController(context);
+                TechnicalController tc = new TechnicalController(context);
 
                 Player player = new Player();
                 player.Username = "testUser";
@@ -120,7 +122,7 @@ namespace XUnitTestProject2
 
                 try
                 {
-                   var x = bc.CreateAnswer(cavm);
+                    var x = tc.CreateAnswer(cavm);
                 }
                 catch (Exception ex)
                 {
