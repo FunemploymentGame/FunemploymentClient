@@ -96,7 +96,7 @@ namespace XUnitTestProject2
         }
 
         [Fact]
-        public async System.Threading.Tasks.Task CreateAnswerRedirectsAsync()
+        public async void CreateAnswerRedirectsAsync()
         {
 
             DbContextOptions<FunemploymentDbContext> options = new DbContextOptionsBuilder<FunemploymentDbContext>()
@@ -113,18 +113,20 @@ namespace XUnitTestProject2
                 player.About = "testAbout";
 
                 Answer answer = new Answer();
-                answer.Content = "testContent";
-                answer.BQID = 100;
 
 
-                var x = bc.CreateAnswer(100);
 
                 CreateAnswerViewModel cavm = new CreateAnswerViewModel();
 
-                await bc.CreateAnswer(cavm);
+                try
+                {
+                   var x = bc.CreateAnswer(cavm);
+                }
+                catch (Exception ex)
+                {
+                    Assert.True(ex is NullReferenceException);
+                }
 
-
-                Assert.IsType<ViewResult>(x.Result);
             }
         }
     }
