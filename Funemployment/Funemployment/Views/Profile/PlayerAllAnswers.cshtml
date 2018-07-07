@@ -1,27 +1,39 @@
 ﻿@model Funemployment.Models.PlayerAllAnswersViewModel
 
-@foreach (var question in Model.BehaviorQuestions)
-{
-    <h2><a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@question.ID">@question.Content</a></h2>
-    for (var i = 0; i < Model.BehaviorAnswers.Count(); i++)
-    {
-        if (Model.BehaviorAnswers[i].BQID == question.ID)
-        {
-            <p>@Model.BehaviorAnswers[i].Content</p>
-        }
-    }
+<head>
+	<link type="text/css" href="~/styles/players_showall.css" rel="stylesheet" />
+</head>
+<body>
+	<main>
+		<header>
+			<h2><a id="nav_profile" asp-controller="Home" asp-action="BackToProfile">To Profile</a></h2>
+			<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+		</header>
 
-}
+		@foreach (var question in Model.BehaviorQuestions)
+		{
+			<h2 class="questions_header"><a asp-controller="Behavioral" asp-action="GetOneBQ" asp-route-id="@question.ID"><span class="content">@question.Content</span></a></h2>
+			for (var i = 0; i < Model.BehaviorAnswers.Count(); i++)
+			{
+				if (Model.BehaviorAnswers[i].BQID == question.ID)
+				{
+					<h2 class="all_answers">@Model.BehaviorAnswers[i].Content</h2>
+				}
+			}
 
-@foreach (var question in Model.TechnicalQuestions)
-{
-    <h2><a asp-controller="Technical" asp-action="GetOneTQ" asp-route-id="@question.ID">@question.ProblemDomain</a></h2>
-    for (var i = 0; i < Model.TechnicalAnswers.Count(); i++)
-    {
-        if (Model.TechnicalAnswers[i].TQID == question.ID)
-        {
-            <p>@Model.TechnicalAnswers[i].Content</p>
-        }
-    }
+		}
 
-}
+		@foreach (var question in Model.TechnicalQuestions)
+		{
+			<h2 class="questions_header"><a asp-controller="Technical" asp-action="GetOneTQ" asp-route-id="@question.ID"><span class="content">@question.ProblemDomain</span></a></h2>
+			for (var i = 0; i < Model.TechnicalAnswers.Count(); i++)
+			{
+				if (Model.TechnicalAnswers[i].TQID == question.ID)
+				{
+					<h2 class="all_answers">@Model.TechnicalAnswers[i].Content</h2>
+				}
+			}
+
+		}
+	</main>
+</body>

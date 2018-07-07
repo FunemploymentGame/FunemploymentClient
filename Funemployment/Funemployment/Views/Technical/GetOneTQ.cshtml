@@ -1,9 +1,24 @@
 ﻿@model Funemployment.Models.OneTQViewModel
-<h2>@Model.technicalQuestion.ProblemDomain</h2>
 
-@foreach (var item in Model.Answers)
-{
-  <p>@item.Content</p>
-}
+<head>
+	<link type="text/css" href="~/styles/get_question.css" rel="stylesheet" />
+</head>
+<main>
+	<header>
+		<h2><a id="nav_profile" asp-controller="Home" asp-action="BackToProfile">To Profile</a></h2>
+		<h2 id="site_logo"><span id="blue_letter">F</span>unemployment</h2>
+	</header>
+	<h2 class="questions_header">
+		<span class="questions_bold">Technical</span> Questions:
+		<span class="content">@Model.technicalQuestion.ProblemDomain</span>
+	</h2>
+	<button class="answer_button"><a asp-controller="Technical" asp-action="CreateAnswer" asp-route-id="@Model.technicalQuestion.ID">Answer</a></button>
+	<section class="answers_section">
+		@foreach (var item in Model.Answers)
+		{
+			<h2 class="answers_list">@item.Content</h2>
+			<hr />
+		}
+	</section>
+</main>
 
-  <p><a asp-controller="Technical" asp-action="CreateAnswer" asp-route-id="@Model.technicalQuestion.ID">Submit an Answer</a></p>

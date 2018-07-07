@@ -1,0 +1,178 @@
+﻿body {
+	background: linear-gradient(rgb(255, 112, 112), rgb(0, 148, 255));
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'IBM Plex Sans';
+	font-size: 16px;
+}
+
+main {
+	position: relative;
+	background: rgb(235, 235, 235);
+	margin: 5vh auto 0;
+	height: 92.75vh;
+	width: 80vw;
+	padding-bottom: 1rem;
+}
+
+p {
+	color: rgb(175, 175, 175);
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 0.5rem;
+}
+
+p > a {
+	margin-top: 2rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgb(0, 148, 255);
+}
+
+#user_heading {
+	position: absolute;
+	left: 22rem;
+	top: 7rem;
+}
+
+#user_heading > h2 {
+	color: rgb(0, 148, 255);
+	font-size: 1.75rem;
+	margin: 0;
+}
+
+#user_heading > p {
+	margin-top: .25rem;
+}
+
+#score_tag {
+	position:relative;
+	bottom: .25rem;
+	margin-bottom: .25rem;
+	font-size: 1rem;
+	padding: .25rem .5rem;
+	display: inline-block;
+	background: rgb(255, 112, 112);
+	color: rgb(255, 255, 255);
+}
+
+#profile_header {
+	background: rgb(255, 255, 255);
+	height: 20vh;
+	z-index: 0;
+}
+
+#profile_jackalope {
+	width: 17.35rem;
+	margin: -1.1rem;
+}
+
+#profile_card {
+	margin-left: 4rem;
+	margin-top: 4rem;
+	height: 40rem;
+	width: 15rem;
+	background: rgb(255, 255, 255);
+	float: left;
+	box-shadow: 0px 0px 0.45rem 0.02rem rgba(0,0,0,0.125);
+}
+
+#card_section {
+	padding-left: 1rem;
+}
+
+#card_username {
+	color: rgb(175, 175, 175);
+	font-weight: 700;
+	text-transform: uppercase;
+	font-style: italic;
+}
+
+#card_score {
+	margin-top: 2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+#card_quote {
+	line-height: 1rem;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	text-align: left;
+	background: rgb(225, 225, 225);
+	width: 12rem;
+}
+
+#blue_letter {
+	color: rgb(0, 148, 255);
+	text-transform: lowercase;
+}
+
+#site_logo {
+	color: rgb(255, 112, 112);
+	text-transform: lowercase;
+	font-weight: 400;
+	position: absolute;
+	margin: 0;
+	right: 2rem;
+	top: 1.5rem;
+}
+
+#button_section {
+	display: inline-block;
+	margin: 3rem;
+}
+
+.question_button {
+	color: rgb(75, 75, 75);
+	padding-left: 1.5rem;
+	font-style: italic;
+	text-align: left;
+	border: none;
+	width: 15rem;
+	height: 6.5rem;
+	background: rgb(255, 255, 255);
+	box-shadow: 0px 0px 0.45rem 0.02rem rgba(0,0,0,0.125);
+}
+
+.question_button > a {
+	text-decoration: none;
+	color: rgb(175, 175, 175);
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.button_bold {
+	display: block;
+	text-transform: lowercase;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 1.75rem;
+	color: rgb(75,75,75);
+}
+
+.button_bold:hover {
+	color: rgb(255, 112, 112);
+}
+
+#recent_activity {
+	display: inline-block;
+	margin-left: 3rem;
+}
+
+#recent_activity > h2 {
+	font-size: 1.75rem;
+	text-transform: lowercase;
+	margin: 0;
+	color: rgb(0, 148, 255);
+}
+
+#recent_activity > p {
+	margin-top: .5rem;
+	text-transform: uppercase;
+	font-style: italic;
+}
