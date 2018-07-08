@@ -4,6 +4,7 @@ using Funemployment.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 using Xunit;
@@ -75,6 +76,10 @@ namespace XUnitTestProject2
     //            player.Username = "testUser";
     //            player.Location = "testLocation";
     //            player.About = "testAbout";
+
+               
+
+
 
     //            var x = hc.BackToProfile();
 

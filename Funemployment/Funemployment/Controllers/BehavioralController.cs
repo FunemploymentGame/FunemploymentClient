@@ -24,7 +24,7 @@ namespace Funemployment.Controllers
 		/// Get all behavioral questions from the API
 		/// </summary>
 		/// <returns>a list of behavioral questions to the view or not found</returns>
-		public async Task<IActionResult> Index(int id)
+		public async Task<IActionResult> Index()
 		{
 
 			using (var client = new HttpClient())
@@ -109,11 +109,14 @@ namespace Funemployment.Controllers
 			}
 
             var player = _context.PlayerTable.FirstOrDefault(p => p.ID == cavm.Ans.PID);
+
             if (player == null)
             {
                 return NotFound();
             }
+
             player.Points++;
+
             _context.PlayerTable.Update(player);
 
             await _context.AnswerTable.AddAsync(cavm.Ans);
