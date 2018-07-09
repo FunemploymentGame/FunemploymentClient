@@ -2,7 +2,7 @@
 Deployed using Azure:
 [Funemployment](http://funemploymentgame.azurewebsites.net/)
 
-![Funemployment HomeScreen] (https://github.com/FunemploymentGame/FunemploymentClient/blob/master/Funemployment/Funemployment/wwwroot/readme_assets/homepagecapture.PNG) 
+![Funemployment HomeScreen](https://github.com/FunemploymentGame/FunemploymentClient/blob/master/Funemployment/Funemployment/wwwroot/readme_assets/homepagecapture.PNG) 
 
 ![Funemployment Profile](https://github.com/FunemploymentGame/FunemploymentClient/blob/master/Funemployment/Funemployment/wwwroot/readme_assets/ProfileCapture.PNG) 
 
